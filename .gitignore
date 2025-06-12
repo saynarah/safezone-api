@@ -1,0 +1,80 @@
+############################
+# Visual Studio
+############################
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# Build results
+############################
+bin/
+obj/
+out/
+Generated\ Files/
+
+############################
+# ASP.NET Core
+############################
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+secrets.json
+*.db
+*.db-shm
+*.db-wal
+
+############################
+# Docker
+############################
+**/Dockerfile
+docker-compose.override.yml
+**/.dockerignore
+**/docker-compose*.yml
+
+############################
+# Entity Framework
+############################
+**/Migrations/
+**/*.sqlite
+
+############################
+# Logs and dumps
+############################
+*.log
+*.tlog
+*.tmp
+*.bak
+*.swp
+*.sdf
+*.cache
+*.pid
+*.gz
+*.zip
+*.tar.gz
+
+############################
+# Rider / JetBrains
+############################
+.idea/
+*.DotSettings.user
+
+############################
+# OS generated files
+############################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+############################
+# Tests and coverage
+############################
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.testhost.dll
+*.trx
