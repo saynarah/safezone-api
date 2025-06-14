@@ -18,7 +18,7 @@ namespace safezone.infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<Occurrence> GetOccurrenceAsync(int id)
+        public async Task<Occurrence> GetOccurrenceByIdAsync(int id)
         {
             var occurrence = await _context.Occurrences.FindAsync(id);
             if (occurrence == null)

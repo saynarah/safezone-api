@@ -9,7 +9,7 @@ namespace safezone.application.Interfaces
 {
     public interface IOccurenceRepository
     {
-        Task<Occurrence> GetOccurrenceAsync(int id);
+        Task<Occurrence> GetOccurrenceByIdAsync(int id);
         Task<List<Occurrence>> GetAllOccurrencesAsync();
         Task UpdateOccurrenceAsync(Occurrence occurrence);
         Task AddOccurrenceAsync(Occurrence occurrence);
