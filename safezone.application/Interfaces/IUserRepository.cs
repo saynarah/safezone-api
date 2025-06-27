@@ -14,5 +14,6 @@ namespace safezone.application.Interfaces
         Task UpdateUserAsync(User user);
         Task AddUserAsync(User user);
         Task DeleteUserAsync(int id);
+        Task<User> GetUserByEmailAsync(string email);
     }
 }

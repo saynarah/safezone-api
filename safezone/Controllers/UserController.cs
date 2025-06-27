@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using safezone.application.DTOs.Login;
 using safezone.application.DTOs.User;
 using safezone.application.Interfaces;
 using safezone.domain.Entities;
@@ -10,10 +11,14 @@ namespace safezone.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
+        private readonly IJwtService _jwtService;
+        private readonly IAuthService _authService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository, IJwtService jwtService, IAuthService authService)
         {
             _userRepository = userRepository;
+            _jwtService = jwtService;
+            _authService = authService;
         }
 
 
@@ -34,7 +39,7 @@ namespace safezone.Controllers
             var user = new User
             {
                 Email = dto.Email,
-                Password = dto.Password, // Ensure password is hashed in the repository
+                Password = _authService.HashPassword(dto.Password),
             };
 
 
@@ -52,7 +57,7 @@ namespace safezone.Controllers
             if (user == null) return NotFound($"User with ID {id} not found.");
 
             user.Email = dto.Email;
-            user.Password = dto.Password; // Ensure password is hashed in the repository
+            user.Password = _authService.HashPassword(dto.Password);
 
             await _userRepository.UpdateUserAsync(user);
             return NoContent();
@@ -74,8 +79,17 @@ namespace safezone.Controllers
                 return BadRequest("Email and password cannot be empty.");
             var isValid = await _userRepository.ValidateUserAsync(email, password);
             return Ok(isValid);
+        }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO dto)
+        {
+            var user = await _userRepository.GetUserByEmailAsync(dto.Email);
+            if (user == null || !_authService.VerifyPassword(dto.Password, user.Password))
+                return Unauthorized("Invalid credentials");
 
+            var token = _jwtService.GenerateToken(user);
+            return Ok(new { token });
         }
     }
 }

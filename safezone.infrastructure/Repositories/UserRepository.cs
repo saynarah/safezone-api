@@ -55,5 +55,10 @@ namespace safezone.infrastructure.Repositories
             return await _context.Users
                 .AnyAsync(u => u.Email == email && u.Password == password);
         }
+
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+        }
     }
 }
