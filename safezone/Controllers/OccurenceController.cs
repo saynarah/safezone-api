@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using safezone.application.DTOs.Occurence;
 using safezone.application.Interfaces;
 using safezone.domain.Entities;
@@ -17,6 +18,7 @@ namespace safezone.Controllers
             _occurenceRepository = occurenceRepository;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Occurrence>> GetById(int id)
         {
@@ -27,6 +29,7 @@ namespace safezone.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] OccurenceDTO dto)
         {
@@ -46,6 +49,7 @@ namespace safezone.Controllers
             return CreatedAtAction(nameof(GetById), new { id = occurence.Id }, occurence);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, [FromBody]OccurenceDTO dto)
         {
@@ -62,7 +66,7 @@ namespace safezone.Controllers
             return NoContent();
         }
 
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
@@ -72,7 +76,7 @@ namespace safezone.Controllers
             return NoContent();
         }
 
-
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<Occurrence>>> GetAll()
         {
