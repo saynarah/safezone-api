@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using safezone.domain.Enums;
+using safezone.domain.Entities;
 
 namespace safezone.application.DTOs.Occurence
 {
@@ -19,6 +20,8 @@ namespace safezone.application.DTOs.Occurence
 
 
         public double Longitude { get; set; }
+
+        public int UserId { get; set; }
 
 
     }

@@ -24,7 +24,9 @@ namespace safezone.domain.Entities
 
         public double Longitude { get; set; }
 
+        public User User { get; set; } //navegação para a entidade User
 
+        public int UserId { get; set; } //chave estrangeira
 
     }
 }

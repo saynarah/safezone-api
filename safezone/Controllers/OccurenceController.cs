@@ -12,6 +12,8 @@ namespace safezone.Controllers
     {
         private readonly IOccurenceRepository _occurenceRepository;
 
+        private readonly IUserRepository _userRepository;
+
         public OccurenceController(IOccurenceRepository occurenceRepository)
         {
             _occurenceRepository = occurenceRepository;
@@ -30,6 +32,13 @@ namespace safezone.Controllers
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] OccurenceDTO dto)
         {
+            if (dto == null) return BadRequest("Invalid data.");
+
+            var user = await _userRepository.GetUserByIdAsync(dto.UserId);
+
+            if (user == null) return NotFound($"User with ID {dto.UserId} not found.");
+
+
             var occurence = new Occurrence
             {
                 Title = dto.Title,
@@ -37,7 +46,7 @@ namespace safezone.Controllers
                 Latitude = dto.Latitude,
                 Longitude = dto.Longitude,
                 Type = dto.Type,    
-                // UserId = dto.UserId //fazer depois GEORGE
+                UserId = dto.UserId
             };
 
 
