@@ -39,8 +39,8 @@ namespace safezone.Controllers
                 Description = dto.Description,
                 Latitude = dto.Latitude,
                 Longitude = dto.Longitude,
-                Type = dto.Type,    
-                // UserId = dto.UserId //fazer depois GEORGE
+                Type = dto.Type,
+                UserId = dto.UserId 
             };
 
 

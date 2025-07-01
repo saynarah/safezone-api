@@ -12,7 +12,7 @@ using safezone.infrastructure.Persistence;
 namespace safezone.infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250701013014_AddUserToOccurrence")]
+    [Migration("20250701021725_AddUserToOccurrence")]
     partial class AddUserToOccurrence
     {
         /// <inheritdoc />
