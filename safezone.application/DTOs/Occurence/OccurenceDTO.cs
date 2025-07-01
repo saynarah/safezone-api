@@ -20,6 +20,8 @@ namespace safezone.application.DTOs.Occurence
 
         public double Longitude { get; set; }
 
+        public int UserId { get; set; }
+
 
     }
 }
