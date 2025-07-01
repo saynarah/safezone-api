@@ -20,6 +20,14 @@ namespace safezone.infrastructure.Persistence
         public DbSet<Occurrence> Occurrences => Set<Occurrence>();
 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Occurrence>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Occurrences)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // ou Restrict, conforme seu caso
+        }
 
     }
 }
