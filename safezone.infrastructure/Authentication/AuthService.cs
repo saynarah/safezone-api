@@ -12,15 +12,11 @@ namespace safezone.infrastructure.Authentication
     {
         private readonly PasswordHasher<string> _hasher = new();
 
-        public string HashPassword(string senha)
-        {
-            return _hasher.HashPassword(null, senha);
-        }
+        public string HashPassword(string senha) 
+            => _hasher.HashPassword(null, senha);
 
-        public bool VerifyPassword(string senhaDigitada, string senhaHash)
-        {
-            return _hasher.VerifyHashedPassword(null, senhaHash, senhaDigitada)
+        public bool VerifyPassword(string senhaDigitada, string senhaHash) 
+            => _hasher.VerifyHashedPassword(null, senhaHash, senhaDigitada)
                 == PasswordVerificationResult.Success;
-        }
     }
 }

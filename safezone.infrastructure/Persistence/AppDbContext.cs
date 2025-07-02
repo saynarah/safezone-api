@@ -26,7 +26,7 @@ namespace safezone.infrastructure.Persistence
                 .HasOne(o => o.User)
                 .WithMany(u => u.Occurrences)
                 .HasForeignKey(o => o.UserId)
-                .OnDelete(DeleteBehavior.Cascade); // ou Restrict, conforme seu caso
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

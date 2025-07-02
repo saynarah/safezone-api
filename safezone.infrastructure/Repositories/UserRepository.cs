@@ -14,10 +14,8 @@ namespace safezone.infrastructure.Repositories
     {
         private readonly AppDbContext _context;
 
-        public UserRepository(AppDbContext context)
-        {
-            _context = context;
-        }
+        public UserRepository(AppDbContext context) 
+            => _context = context;
 
         public async Task AddUserAsync(User user)
         {
@@ -56,9 +54,7 @@ namespace safezone.infrastructure.Repositories
                 .AnyAsync(u => u.Email == email && u.Password == password);
         }
 
-        public async Task<User> GetUserByEmailAsync(string email)
-        {
-            return await _context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
-        }
+        public async Task<User> GetUserByEmailAsync(string email) 
+            => await _context.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
     }
 }

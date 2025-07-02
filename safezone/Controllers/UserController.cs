@@ -26,10 +26,8 @@ namespace safezone.Controllers
         public async Task<ActionResult<User>> GetById(int id)
         {
             var user = await _userRepository.GetUserByIdAsync(id);
-
             if (user == null) return NotFound($"User with ID {id} not found.");
             return Ok(user);
-
         }
 
 
@@ -52,7 +50,6 @@ namespace safezone.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, [FromBody]UserDTO dto)
         {
-
             var user = await _userRepository.GetUserByIdAsync(id);
             if (user == null) return NotFound($"User with ID {id} not found.");
 
