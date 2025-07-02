@@ -17,10 +17,8 @@ namespace safezone.infrastructure.Authentication
     {
         private readonly JwtSettings _jwtSettings;
 
-        public JwtService(IOptions<JwtSettings> jwtSettings)
-        {
-            _jwtSettings = jwtSettings.Value;
-        }
+        public JwtService(IOptions<JwtSettings> jwtSettings) 
+            => _jwtSettings = jwtSettings.Value;
 
         public string GenerateToken(User user)
         {
@@ -29,9 +27,9 @@ namespace safezone.infrastructure.Authentication
 
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-            new Claim("userId", user.Id.ToString())
-        };
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                new Claim("userId", user.Id.ToString())
+            };
 
             var token = new JwtSecurityToken(
                 issuer: _jwtSettings.Issuer,

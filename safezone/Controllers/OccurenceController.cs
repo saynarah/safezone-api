@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using safezone.application.DTOs.Occurence;
 using safezone.application.Interfaces;
 using safezone.domain.Entities;
-using safezone.infrastructure.Repositories;
 
 namespace safezone.Controllers
 {
@@ -13,20 +12,16 @@ namespace safezone.Controllers
     {
         private readonly IOccurenceRepository _occurenceRepository;
 
-        public OccurenceController(IOccurenceRepository occurenceRepository)
-        {
-            _occurenceRepository = occurenceRepository;
-        }
+        public OccurenceController(IOccurenceRepository occurenceRepository) 
+            => _occurenceRepository = occurenceRepository;
 
         [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Occurrence>> GetById(int id)
         {
             var occurence = await _occurenceRepository.GetOccurrenceByIdAsync(id);
-
             if (occurence == null) return NotFound($"User with ID {id} not found.");
             return Ok(occurence);
-
         }
 
         [Authorize]
@@ -40,6 +35,7 @@ namespace safezone.Controllers
                 Latitude = dto.Latitude,
                 Longitude = dto.Longitude,
                 Type = dto.Type,
+                Address = dto.Address,
                 UserId = dto.UserId 
             };
 
@@ -61,6 +57,7 @@ namespace safezone.Controllers
             occurence.Latitude = dto.Latitude;
             occurence.Longitude = dto.Longitude;    
             occurence.Type = dto.Type;  
+            occurence.Address = dto.Address;
 
             await _occurenceRepository.UpdateOccurrenceAsync(occurence);
             return NoContent();
