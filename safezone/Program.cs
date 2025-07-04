@@ -58,7 +58,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200", "https://safezone-web-app-c6acgpakcwfccbfp.canadacentral-01.azurewebsites.net")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
