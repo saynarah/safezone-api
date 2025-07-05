@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "safezone", "safezone.csproj", "{9628F06C-5905-45CE-A5D2-E26E2B8ED5E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "safezone", "safezone.csproj", "{9628F06C-5905-45CE-A5D2-E26E2B8ED5E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "safezone.application", "..\safezone.application\safezone.application.csproj", "{CEA2A3E6-5C83-4AC0-B177-85F1A379EC38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "safezone.application", "..\safezone.application\safezone.application.csproj", "{CEA2A3E6-5C83-4AC0-B177-85F1A379EC38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "safezone.domain", "..\safezone.domain\safezone.domain.csproj", "{C77F30D6-1074-4318-AA10-6F9FCEDF86DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "safezone.domain", "..\safezone.domain\safezone.domain.csproj", "{C77F30D6-1074-4318-AA10-6F9FCEDF86DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "safezone.infrastructure", "..\safezone.infrastructure\safezone.infrastructure.csproj", "{1424E832-3445-4179-A561-623EFE1E8151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "safezone.infrastructure", "..\safezone.infrastructure\safezone.infrastructure.csproj", "{1424E832-3445-4179-A561-623EFE1E8151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "safezone.tests", "..\safezone.tests\safezone.tests.csproj", "{3DB9257A-0124-4883-9E5D-83555DF83DFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1424E832-3445-4179-A561-623EFE1E8151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1424E832-3445-4179-A561-623EFE1E8151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1424E832-3445-4179-A561-623EFE1E8151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB9257A-0124-4883-9E5D-83555DF83DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB9257A-0124-4883-9E5D-83555DF83DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB9257A-0124-4883-9E5D-83555DF83DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB9257A-0124-4883-9E5D-83555DF83DFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

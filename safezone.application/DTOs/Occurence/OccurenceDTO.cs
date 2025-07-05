@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using safezone.domain.Enums;
+﻿using safezone.domain.Enums;
 
 namespace safezone.application.DTOs.Occurence
 {
